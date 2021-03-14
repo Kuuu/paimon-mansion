@@ -10,8 +10,6 @@ public class GameController : MonoBehaviour
     private int currentRoom = 1;
     private Vector3 vec3;
     private int nextRoomIndex;
-    private bool reEnableFPC = false;
-    private bool teleportOnUpdate = false;
 
     public Transform[] roomStartPoints;
     public Text roomText;
@@ -30,34 +28,7 @@ public class GameController : MonoBehaviour
         vec3 = new Vector3(0, 0, 0);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    void FixedUpdate()
-    {
-        if (reEnableFPC)
-        {
-            player.GetComponent<FirstPersonController>().enabled = true;
-            reEnableFPC = false;
-        }
-
-        if (teleportOnUpdate)
-        {
-            Teleport();
-            teleportOnUpdate = false;
-            reEnableFPC = true;
-        }
-    }
-
     public void NextDoor()
-    {
-        teleportOnUpdate = true;
-    }
-
-    private void Teleport()
     {
         currentRoom++;
 
@@ -78,8 +49,9 @@ public class GameController : MonoBehaviour
         vec3.y = roomStartPoints[nextRoomIndex].position.y;
         vec3.z = roomStartPoints[nextRoomIndex].position.z;
 
-        player.GetComponent<FirstPersonController>().enabled = false;
+        //player.GetComponent<CharacterController>().enabled = false;
         player.transform.position = vec3;
+        player.transform.rotation = roomStartPoints[nextRoomIndex].rotation;
 
     }
 }
