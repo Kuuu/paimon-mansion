@@ -2578,7 +2578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba9495e89eff394ca7dd92b6070f051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 200
+  mouseSensitivity: 230
   mouseX: 0
   mouseY: 0
 --- !u!81 &274091661
@@ -2598,8 +2598,8 @@ Camera:
   m_GameObject: {fileID: 274091658}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2644,8 +2644,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06263b2a4b245bd4ebc9694310294822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkingBobbingSpeed: 12
-  bobbingAmount: 0.2
+  walkBobbingSpeed: 12
+  bobbingAmount: 0.1
 --- !u!1 &274737861
 GameObject:
   m_ObjectHideFlags: 0
@@ -3649,13 +3649,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16bfe96dcbc1434478289bece7fa6953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4.5
+  walkSpeed: 6
+  runSpeed: 11
   gravityMultiplier: 2
   groundCheck: {fileID: 391805067}
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
     m_Bits: 256
+  isRunning: 0
+  runMultiplier: 0
 --- !u!114 &354179390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3668,7 +3671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 423bdf5cac2a5ed4e83440582afd2971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepRate: 0.55
+  walkStepRate: 0.55
   stepCoolDown: 0
   footstepSounds:
   - {fileID: 8300000, guid: bb003357adbdc3a4c9a023af4e98c931, type: 3}
