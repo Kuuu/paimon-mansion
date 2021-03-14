@@ -36,6 +36,14 @@ public class GameController : MonoBehaviour
         torch.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
+
     public void NextDoor()
     {
         currentRoom++;
