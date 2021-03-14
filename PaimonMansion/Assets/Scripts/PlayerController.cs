@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour
         {
             if (isNearDoor)
             {
-                Debug.Log("E");
                 GameController.Instance.NextDoor();
             }
         }

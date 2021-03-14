@@ -15,6 +15,9 @@ public class GameController : MonoBehaviour
     public Text roomText;
     public GameObject player;
 
+    public GameObject torch;
+    private int[] torchRooms = {5};
+
     private void Awake()
     {
         if (!Instance)
@@ -26,6 +29,11 @@ public class GameController : MonoBehaviour
         }
 
         vec3 = new Vector3(0, 0, 0);
+    }
+
+    private void Start()
+    {
+        torch.SetActive(false);
     }
 
     public void NextDoor()
@@ -44,6 +52,15 @@ public class GameController : MonoBehaviour
         }
 
         nextRoomIndex = Random.Range(0, roomStartPoints.Length);
+
+        torch.SetActive(false);
+        foreach (int x in torchRooms)
+        {
+            if (x.Equals(nextRoomIndex))
+            {
+                torch.SetActive(true);
+            }
+        }
 
         vec3.x = roomStartPoints[nextRoomIndex].position.x;
         vec3.y = roomStartPoints[nextRoomIndex].position.y;
